@@ -1,0 +1,125 @@
+:root {
+    --fundo: #f4f5f7;
+    --card: #ffffff;
+    --texto: #1f2933;
+    --suave: #6b7785;
+    --borda: #d9dee4;
+    --principal: #1f4e79;
+    --principal-escuro: #163a5a;
+    --erro: #b3261e;
+    --erro-fundo: #fdecea;
+    --ok: #1b6e3c;
+    --ok-fundo: #e6f4ea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+a { color: var(--principal); }
+
+/* topo */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 24px;
+    background: var(--principal);
+    color: #fff;
+}
+.topbar a { color: #fff; text-decoration: none; }
+.brand { font-weight: 700; font-size: 1.2rem; }
+.menu { display: flex; gap: 16px; flex: 1; }
+.menu a:hover { text-decoration: underline; }
+.sair { display: flex; align-items: center; gap: 12px; margin: 0; }
+.btn-link {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .6);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-link:hover { background: rgba(255, 255, 255, .15); }
+
+/* layout */
+.container { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+.estreito { max-width: 440px; margin: 0 auto; }
+h1 { margin: 0 0 16px; font-size: 1.5rem; }
+h2 { margin: 0 0 12px; font-size: 1.15rem; }
+
+.grid-2 { display: grid; grid-template-columns: 340px 1fr; gap: 24px; align-items: start; }
+@media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* formulários */
+label { display: block; margin: 12px 0 4px; font-weight: 600; font-size: .9rem; }
+input, select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    font: inherit;
+    background: #fff;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--principal); outline-offset: 0; }
+
+button, .botao {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--principal);
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+button:hover, .botao:hover { background: var(--principal-escuro); }
+.perigo { background: var(--erro); }
+.perigo:hover { background: #8c1c16; }
+.secundario { background: #e4e8ec; color: var(--texto); }
+.secundario:hover { background: #d3d9df; }
+
+/* mensagens */
+.msg { padding: 10px 14px; border-radius: 4px; margin: 0 0 16px; }
+.msg-erro { background: var(--erro-fundo); color: var(--erro); }
+.msg-ok { background: var(--ok-fundo); color: var(--ok); }
+
+/* tabelas */
+.tabela { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+th { font-size: .85rem; color: var(--suave); text-transform: uppercase; letter-spacing: .03em; }
+td .acoes { display: flex; gap: 8px; }
+td button, td .botao { margin-top: 0; padding: 4px 10px; font-size: .85rem; }
+td form { margin: 0; }
+
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: .8rem; background: #e4e8ec; }
+.tag-disparado { background: var(--erro-fundo); color: var(--erro); }
+.tag-normal { background: var(--ok-fundo); color: var(--ok); }
+
+/* home */
+.resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.resumo .numero { font-size: 2rem; font-weight: 700; color: var(--principal); }
+.resumo .rotulo { color: var(--suave); }
+.cidades { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.cidades a { text-decoration: none; color: inherit; }
+.cidades a:hover .card { border-color: var(--principal); }
+.cidade img { max-width: 100%; border-radius: 8px; margin-bottom: 16px; }
+
+.busca { display: flex; gap: 8px; margin-bottom: 12px; }
+.busca button, .busca .botao { margin-top: 0; }
